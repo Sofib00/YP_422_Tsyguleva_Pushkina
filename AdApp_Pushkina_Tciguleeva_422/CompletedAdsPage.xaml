@@ -1,0 +1,54 @@
+﻿<Page x:Class="AdApp_Pushkina_Tciguleeva_422.CompletedAdsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0 0 0 16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Назад"
+                Width="100"
+                Height="30"
+                Margin="0 0 16 0"
+                BorderThickness="2"
+                Click="BackButton_Click"/>
+
+            <TextBlock Grid.Column="1"
+                   Text="Проданные"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"/>
+        </Grid>
+
+        <DataGrid x:Name="CompletedAdsGrid"
+              Grid.Row="1"
+              AutoGenerateColumns="False"
+              HeadersVisibility="Column"
+              Margin="0,0,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding title}" Width="2*"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding description}" Width="3*"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding price}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock x:Name="TotalProfitText"
+               Grid.Row="2"
+               FontSize="16"
+               FontWeight="Bold"
+               HorizontalAlignment="Right"
+               Margin="0,8,0,0"
+               Foreground="{StaticResource AccentBrush}"/>
+    </Grid>
+
+</Page>
